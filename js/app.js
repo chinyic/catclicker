@@ -6,7 +6,7 @@ const clickCounter = document.getElementById("clicks");
 
 catImg.addEventListener("click", changeNum, false);
 
-function changeNum(e){
+function changeNum(){
     clickCount++;
     clickCounter.innerHTML = clickCount;
   };
