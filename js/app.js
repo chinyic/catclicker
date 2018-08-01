@@ -1,6 +1,6 @@
 //insert JS for event listener when cat clicked
 //insert JS for increment move
-const cat1 = document.getElementById("catImg1");
+/* const cat1 = document.getElementById("catImg1");
 const cat2 = document.getElementById("catImg2");
 let clickCount = 0;
 const clickCounter = document.getElementById('click1');
@@ -12,6 +12,7 @@ function changeNum(){
     clickCount++;
     clickCounter.innerHTML = clickCount;
   };
+*/
 
 //store cat name in JS variable, cat name above cat image
 
@@ -41,8 +42,11 @@ for (var i = 0; i < nums.length; i++) {
 };
 
 */
+document.body.innerHTML ='';
 
-var allCats = [{
+function() {
+  var allCats =
+  [{
 name: 'Hana',
 src: 'images/cat1.jpg',
 clickCount: 0,
@@ -68,16 +72,23 @@ clickCount: 0,
   clickCount:0
 }
 ];
+};
 
-var selectedCat =
-document.body.appendChild(allCats);
+for (var i = 0; i < allCats.length; i++) {
 
-let clickCount = 0;
-const clickCounter = document.getElementById("clicks");
+    // This is the number we're on...
+    var selectedCat = allCats[i];
 
-cat1.addEventListener("click", changeNum, false);
+    // We're creating a DOM element for the number
+    var elem = document.createElement('div');
+    elem.textContent = selectedCat;
 
-function changeNum(){
-    clickCount++;
-    clickCounter.innerHTML = clickCount;
-  };
+    // ... and when we click, alert the value of `num`
+    elem.addEventListener('click', (function(selectedCatCopy) {
+        return function() {
+            alert(selectedCatCopy);
+        };
+    })(selectedCat));
+
+    document.body.appendChild(elem);
+};
