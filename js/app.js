@@ -16,36 +16,8 @@ function changeNum(){
 
 //store cat name in JS variable, cat name above cat image
 
-/*// clear the screen for testing
-document.body.innerHTML = '';
-
-var nums = [1,2,3];
-
-// Let's loop over the numbers in our array
-for (var i = 0; i < nums.length; i++) {
-
-    // This is the number we're on...
-    var num = nums[i];
-
-    // We're creating a DOM element for the number
-    var elem = document.createElement('div');
-    elem.textContent = num;
-
-    // ... and when we click, alert the value of `num`
-    elem.addEventListener('click', (function(numCopy) {
-        return function() {
-            alert(numCopy);
-        };
-    })(num));
-
-    document.body.appendChild(elem);
-};
-
-*/
-document.body.innerHTML ='';
-
-function() {
-  var allCats =
+/*function () {
+  let allCats =
   [{
 name: 'Hana',
 src: 'images/cat1.jpg',
@@ -73,6 +45,10 @@ clickCount: 0,
 }
 ];
 };
+*/
+
+var allCats = ["Hana", "Ttul", "Set", "Net", "Tasut"];
+
 
 for (var i = 0; i < allCats.length; i++) {
 
@@ -80,17 +56,20 @@ for (var i = 0; i < allCats.length; i++) {
     var selectedCat = allCats[i];
 
     // We're creating a DOM element for the number
-    var elem = document.createElement('div');
-    elem.textContent = selectedCat;
+    var ul = document.getElementById('catList');
+    var li = document.createElement('li');
+    ul.appendChild(li);
+
+    li.textContent = selectedCat;
 
     // ... and when we click, alert the value of `num`
-    elem.addEventListener('click', (function(selectedCatCopy) {
+    li.addEventListener('click', (function(selectedCatCopy) {
         return function() {
             alert(selectedCatCopy);
+
         };
     })(selectedCat));
 
-    document.body.appendChild(elem);
 };
 
 /*Visuals
